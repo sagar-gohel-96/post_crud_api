@@ -8,9 +8,10 @@ const getPosts = async (req, res, next) => {
   }
 };
 const createPost = async (req, res) => {
-  console.log(req.body);
+  console.log(req.body, "create");
   try {
     const post = await Post.create(req.body);
+    console.log(post, "create", post.title);
     res.status(200).json({ sucess: true, data: post });
   } catch {
     res.status(400).json({ sucess: false });
